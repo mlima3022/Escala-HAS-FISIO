@@ -180,26 +180,39 @@
             font-size: 0.95rem;
         }
         
-        /* Calendar - CORRIGIDO */
+        /* Calendar - CORRIGIDO PERFEITAMENTE */
+        .calendar-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            background: white;
+            padding: 5px;
+        }
+        
         .weekdays {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 3px;
-            margin-bottom: 8px;
+            gap: 2px;
+            margin-bottom: 4px;
             text-align: center;
+            width: 100%;
         }
         
         .weekday {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: var(--gray);
-            padding: 6px 0;
+            padding: 8px 2px;
+            text-align: center;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 3px;
+            gap: 2px;
             width: 100%;
         }
         
@@ -209,23 +222,24 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
             transition: var(--transition);
             position: relative;
             padding: 3px;
-            border: 2px solid transparent;
-            min-height: 45px;
+            border: 1px solid transparent;
+            min-height: 42px;
+            width: 100%;
         }
         
         .day-number {
             font-weight: 600;
-            margin-bottom: 2px;
-            font-size: 0.9rem;
+            margin-bottom: 1px;
+            font-size: 0.85rem;
         }
         
         .day-code {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
         }
         
@@ -244,6 +258,7 @@
             visibility: hidden;
             border: none;
             background: transparent;
+            pointer-events: none;
         }
         
         .day.today {
@@ -258,7 +273,7 @@
         }
         
         .day.selected {
-            box-shadow: 0 0 0 3px rgba(58, 87, 232, 0.3);
+            box-shadow: 0 0 0 2px rgba(58, 87, 232, 0.3);
             transform: scale(1.05);
             z-index: 10;
         }
@@ -267,7 +282,7 @@
         .legend {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
             margin-top: 15px;
             justify-content: center;
         }
@@ -275,39 +290,39 @@
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.85rem;
+            gap: 6px;
+            font-size: 0.75rem;
         }
         
         .legend-color {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 3px;
         }
         
         .legend-work {
             background-color: rgba(0, 172, 193, 0.1);
-            border: 2px solid var(--secondary);
+            border: 1px solid var(--secondary);
         }
         
         .legend-off {
             background-color: var(--light-gray);
-            border: 2px solid var(--gray);
+            border: 1px solid var(--gray);
         }
         
         /* Work Days List */
         .work-days-list {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
         
         .work-day-item {
             display: flex;
             align-items: center;
-            padding: 15px;
+            padding: 12px;
             background-color: rgba(0, 172, 193, 0.05);
-            border-radius: 10px;
+            border-radius: 8px;
             border-left: 4px solid var(--secondary);
         }
         
@@ -315,25 +330,25 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 70px;
-            padding-right: 15px;
+            min-width: 60px;
+            padding-right: 12px;
             border-right: 1px solid rgba(0, 0, 0, 0.1);
         }
         
         .work-day-number {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--primary);
         }
         
         .work-day-weekday {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--gray);
             text-transform: uppercase;
         }
         
         .work-day-details {
-            padding-left: 15px;
+            padding-left: 12px;
             flex: 1;
         }
         
@@ -341,57 +356,58 @@
             display: inline-block;
             background-color: var(--primary);
             color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         
         .work-day-description {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: var(--dark);
         }
         
-        /* Next Work Days - CORRIGIDO */
+        /* Next Work Days - ATUALIZADO EM TEMPO REAL */
         .next-work-days-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
         
         .next-day-item {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 15px;
+            padding: 10px 12px;
             background-color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             border-left: 4px solid var(--secondary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .next-day-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            flex: 1;
         }
         
         .next-day-date {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-width: 50px;
+            min-width: 45px;
         }
         
         .next-day-number {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--primary);
         }
         
         .next-day-weekday {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: var(--gray);
         }
         
@@ -403,53 +419,79 @@
             display: inline-block;
             background-color: var(--primary);
             color: white;
-            padding: 2px 8px;
-            border-radius: 15px;
-            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 0.65rem;
             font-weight: 600;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
         
         .next-day-description {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--dark);
         }
         
         .next-day-distance {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: var(--gray);
             font-style: italic;
+            margin-top: 2px;
+        }
+        
+        /* Current Work Status */
+        .current-status {
+            background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .current-status.off {
+            background: linear-gradient(135deg, #ff9800 0%, #ef6c00 100%);
+        }
+        
+        .status-text {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .status-subtext {
+            font-size: 0.75rem;
+            opacity: 0.9;
+            margin-top: 3px;
         }
         
         /* Codes Grid */
         .codes-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 10px;
         }
         
         .code-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px;
+            gap: 8px;
+            padding: 8px;
             background-color: var(--light-gray);
-            border-radius: 8px;
+            border-radius: 6px;
         }
         
         .code-badge {
-            min-width: 50px;
+            min-width: 45px;
             background-color: var(--primary);
             color: white;
-            padding: 5px;
-            border-radius: 6px;
+            padding: 4px;
+            border-radius: 5px;
             text-align: center;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
         }
         
         .code-desc {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--dark);
         }
         
@@ -457,9 +499,9 @@
         .summary-card {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 20px;
+            padding: 15px;
             border-radius: var(--border-radius);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             box-shadow: var(--box-shadow);
         }
         
@@ -467,7 +509,7 @@
             display: flex;
             justify-content: space-between;
             text-align: center;
-            margin-top: 15px;
+            margin-top: 12px;
         }
         
         .stat {
@@ -475,14 +517,14 @@
         }
         
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
         }
         
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             opacity: 0.9;
-            margin-top: 5px;
+            margin-top: 3px;
         }
         
         /* Tab Navigation */
@@ -491,7 +533,7 @@
             top: 0;
             z-index: 90;
             background-color: white;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-bottom: 1px solid var(--light-gray);
         }
         
@@ -500,7 +542,7 @@
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding: 0 15px;
+            padding: 0 10px;
         }
         
         .tabs::-webkit-scrollbar {
@@ -509,12 +551,13 @@
         
         .tab {
             flex: 0 0 auto;
-            padding: 15px 20px;
+            padding: 12px 15px;
             font-weight: 600;
             color: var(--gray);
             border-bottom: 3px solid transparent;
             white-space: nowrap;
             transition: var(--transition);
+            font-size: 0.85rem;
         }
         
         .tab.active {
@@ -541,9 +584,9 @@
             border-top: 1px solid var(--light-gray);
             display: flex;
             justify-content: space-around;
-            padding: 10px 0;
+            padding: 8px 0;
             z-index: 100;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
         }
         
         .nav-item {
@@ -553,15 +596,15 @@
             justify-content: center;
             color: var(--gray);
             text-decoration: none;
-            font-size: 0.75rem;
-            padding: 5px;
+            font-size: 0.7rem;
+            padding: 4px;
             transition: var(--transition);
             flex: 1;
         }
         
         .nav-item i {
-            font-size: 1.2rem;
-            margin-bottom: 4px;
+            font-size: 1.1rem;
+            margin-bottom: 3px;
         }
         
         .nav-item.active {
@@ -569,7 +612,7 @@
         }
         
         .main-content {
-            padding-bottom: 70px; /* Espaço para a navegação inferior */
+            padding-bottom: 65px; /* Espaço para a navegação inferior */
         }
         
         /* Responsividade adicional */
@@ -599,17 +642,22 @@
         
         @media (max-width: 350px) {
             .day {
-                min-height: 40px;
-                font-size: 0.75rem;
+                min-height: 38px;
+                font-size: 0.7rem;
                 padding: 2px;
             }
             
             .day-number {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
             
             .day-code {
-                font-size: 0.6rem;
+                font-size: 0.55rem;
+            }
+            
+            .weekday {
+                font-size: 0.7rem;
+                padding: 6px 1px;
             }
         }
         
@@ -621,6 +669,16 @@
         
         .fade-in {
             animation: fadeIn 0.4s ease forwards;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
         }
         
         /* Utilitários */
@@ -650,8 +708,17 @@
         
         .no-work-days {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             color: var(--gray);
+            font-style: italic;
+            font-size: 0.85rem;
+        }
+        
+        .last-updated {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--gray);
+            margin-top: 10px;
             font-style: italic;
         }
     </style>
@@ -703,6 +770,11 @@
     </div>
     
     <div class="container main-content">
+        <!-- Status Atual -->
+        <div id="current-status-container">
+            <!-- Será preenchido por JavaScript -->
+        </div>
+        
         <!-- Resumo -->
         <div class="summary-card">
             <h2 class="mb-10">Resumo do Mês</h2>
@@ -731,18 +803,20 @@
                     Calendário de Janeiro 2026
                 </h3>
                 
-                <div class="weekdays">
-                    <div class="weekday">Dom</div>
-                    <div class="weekday">Seg</div>
-                    <div class="weekday">Ter</div>
-                    <div class="weekday">Qua</div>
-                    <div class="weekday">Qui</div>
-                    <div class="weekday">Sex</div>
-                    <div class="weekday">Sáb</div>
-                </div>
-                
-                <div class="calendar-grid" id="calendar">
-                    <!-- Dias serão gerados por JavaScript -->
+                <div class="calendar-wrapper">
+                    <div class="weekdays">
+                        <div class="weekday">Dom</div>
+                        <div class="weekday">Seg</div>
+                        <div class="weekday">Ter</div>
+                        <div class="weekday">Qua</div>
+                        <div class="weekday">Qui</div>
+                        <div class="weekday">Sex</div>
+                        <div class="weekday">Sáb</div>
+                    </div>
+                    
+                    <div class="calendar-grid" id="calendar">
+                        <!-- Dias serão gerados por JavaScript -->
+                    </div>
                 </div>
                 
                 <div class="legend mt-20">
@@ -759,6 +833,10 @@
                         <span>Hoje</span>
                     </div>
                 </div>
+                
+                <div class="last-updated" id="calendar-updated">
+                    <!-- Atualizado dinamicamente -->
+                </div>
             </div>
             
             <div class="card">
@@ -768,6 +846,9 @@
                 </h3>
                 <div class="next-work-days-container" id="next-work-days">
                     <!-- Próximos dias serão gerados dinamicamente -->
+                </div>
+                <div class="last-updated" id="next-work-updated">
+                    <!-- Atualizado dinamicamente -->
                 </div>
             </div>
         </div>
@@ -782,6 +863,9 @@
                 
                 <div class="work-days-list" id="work-days-list">
                     <!-- Lista de dias de trabalho será gerada por JavaScript -->
+                </div>
+                <div class="last-updated" id="work-days-updated">
+                    <!-- Atualizado dinamicamente -->
                 </div>
             </div>
         </div>
@@ -882,7 +966,7 @@
                     </div>
                     <div class="code-item">
                         <div class="code-badge">T</div>
-                        <div class="card-desc">Tarde</div>
+                        <div class="code-desc">Tarde</div>
                     </div>
                     <div class="code-item">
                         <div class="code-badge">N</div>
@@ -923,7 +1007,7 @@
     </div>
 
     <script>
-        // Dados da escala CORRIGIDOS
+        // Dados da escala
         const workDays = [
             { day: 4, code: "PCti", description: "Plantão CTI" },
             { day: 7, code: "PUco", description: "Plantão UCO" },
@@ -939,23 +1023,23 @@
             { day: 30, code: "PCti", description: "Plantão CTI" }
         ];
         
-        // Escala completa de janeiro
+        // Escala completa de janeiro 2026
         const fullSchedule = [
             "F", "F", "F", "PCti", "F", "F", "PUco", "F", "MCti", "F",
             "PCti", "F", "F", "MCti", "F", "PCti", "F", "PCti", "F", "P",
             "F", "F", "PCti", "F", "MCti", "F", "F", "MCti", "F", "PCti", "F"
         ];
         
-        // Configurações do calendário - JANEIRO 2026 começa na QUINTA-FEIRA
-        const firstDayOfMonth = 4; // 0=domingo, 1=segunda, 2=terça, 3=quarta, 4=quinta
+        // Configurações - Janeiro 2026 começa na QUINTA-FEIRA (4)
+        // 0=Dom, 1=Seg, 2=Ter, 3=Qua, 4=Qui, 5=Sex, 6=Sáb
+        const firstDayOfMonth = 4; // Quinta-feira
         const daysInMonth = 31;
-        const monthNames = ["JANEIRO", "FEVEREIRO", "MARÇO", "ABRIL", "MAIO", "JUNHO", 
-                           "JULHO", "AGOSTO", "SETEMBRO", "OUTUBRO", "NOVEMBRO", "DEZEMBRO"];
         
         // Elementos DOM
         const calendarEl = document.getElementById('calendar');
         const workDaysListEl = document.getElementById('work-days-list');
         const nextWorkDaysEl = document.getElementById('next-work-days');
+        const currentStatusContainer = document.getElementById('current-status-container');
         const tabs = document.querySelectorAll('.tab');
         const navItems = document.querySelectorAll('.nav-item');
         const tabContents = document.querySelectorAll('.tab-content');
@@ -963,31 +1047,65 @@
         const totalOffDaysEl = document.getElementById('total-off-days');
         const nextWorkInEl = document.getElementById('next-work-in');
         const nextWorkLabelEl = document.getElementById('next-work-label');
+        const calendarUpdatedEl = document.getElementById('calendar-updated');
+        const nextWorkUpdatedEl = document.getElementById('next-work-updated');
+        const workDaysUpdatedEl = document.getElementById('work-days-updated');
         
-        // Obter data atual
-        const currentDate = new Date();
-        const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth(); // 0 = janeiro
-        const currentDay = currentDate.getDate();
+        // Obter data atual REAL
+        const today = new Date();
+        const currentYear = today.getFullYear();
+        const currentMonth = today.getMonth(); // 0 = janeiro
+        const currentDay = today.getDate();
+        const currentHour = today.getHours();
         
-        // Verificar se estamos em janeiro de 2026 para fins de demonstração
-        // Para teste, vamos considerar que estamos em 5 de janeiro de 2026
-        const demoDate = new Date(2026, 0, 5); // 5 de janeiro de 2026
-        const today = demoDate; // Para demonstração, usar data de teste
-        // const today = currentDate; // Para usar data real
+        // Timer para atualização em tempo real
+        let updateInterval;
         
-        // Calcular próximo dia de trabalho
-        function getNextWorkDays() {
-            const todayDay = today.getDate();
-            const todayMonth = today.getMonth();
-            const todayYear = today.getFullYear();
+        // Formatar data para exibição
+        function formatDate(date) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('pt-BR', options);
+        }
+        
+        // Formatar hora para exibição
+        function formatTime(date) {
+            return date.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+        }
+        
+        // Atualizar timestamp
+        function updateTimestamps() {
+            const now = new Date();
+            const timeStr = formatTime(now);
             
-            // Se não for janeiro de 2026, mostrar mensagem
-            if (todayYear !== 2026 || todayMonth !== 0) {
-                return { nextDays: [], daysUntilNext: null };
+            if (calendarUpdatedEl) {
+                calendarUpdatedEl.textContent = `Atualizado: ${timeStr}`;
+            }
+            if (nextWorkUpdatedEl) {
+                nextWorkUpdatedEl.textContent = `Atualizado: ${timeStr}`;
+            }
+            if (workDaysUpdatedEl) {
+                workDaysUpdatedEl.textContent = `Atualizado: ${timeStr}`;
+            }
+        }
+        
+        // Verificar se é janeiro de 2026
+        function isJanuary2026() {
+            return currentYear === 2026 && currentMonth === 0;
+        }
+        
+        // Calcular próximo dia de trabalho COM DATA REAL
+        function getNextWorkDays() {
+            if (!isJanuary2026()) {
+                return { nextDays: [], daysUntilNext: null, isTodayWorkDay: false };
             }
             
-            // Filtrar dias de trabalho futuros
+            const todayDay = currentDay;
+            
+            // Verificar se hoje é dia de trabalho
+            const todayWorkDay = workDays.find(d => d.day === todayDay);
+            const isTodayWorkDay = !!todayWorkDay;
+            
+            // Filtrar dias de trabalho futuros (após hoje)
             const futureWorkDays = workDays.filter(workDay => workDay.day > todayDay);
             
             // Ordenar por dia
@@ -1002,33 +1120,71 @@
                 daysUntilNext = nextDays[0].day - todayDay;
             }
             
-            return { nextDays, daysUntilNext };
+            return { nextDays, daysUntilNext, isTodayWorkDay, todayWorkDay };
         }
         
-        // Inicializar calendário CORRIGIDO
+        // Criar status atual
+        function createCurrentStatus() {
+            currentStatusContainer.innerHTML = '';
+            
+            if (!isJanuary2026()) {
+                const currentDate = formatDate(today);
+                const statusEl = document.createElement('div');
+                statusEl.className = 'current-status off';
+                statusEl.innerHTML = `
+                    <div class="status-text">Escala para Janeiro 2026</div>
+                    <div class="status-subtext">Data atual: ${currentDate}</div>
+                    <div class="status-subtext">Mostrando escala do mês de referência</div>
+                `;
+                currentStatusContainer.appendChild(statusEl);
+                return;
+            }
+            
+            const { isTodayWorkDay, todayWorkDay } = getNextWorkDays();
+            
+            const statusEl = document.createElement('div');
+            
+            if (isTodayWorkDay) {
+                // Verificar se está no horário de trabalho (7h às 19h)
+                const isWorkingHours = currentHour >= 7 && currentHour < 19;
+                
+                statusEl.className = `current-status ${isWorkingHours ? 'pulse' : ''}`;
+                statusEl.innerHTML = `
+                    <div class="status-text">${isWorkingHours ? '🏥 EM TRABALHO AGORA' : '✅ DIA DE TRABALHO'}</div>
+                    <div class="status-subtext">${todayWorkDay.description} (${todayWorkDay.code})</div>
+                    <div class="status-subtext">Horário: 07:00 às 19:00</div>
+                `;
+            } else {
+                statusEl.className = 'current-status off';
+                statusEl.innerHTML = `
+                    <div class="status-text">😴 DIA DE FOLGA</div>
+                    <div class="status-subtext">Aproveite o descanso!</div>
+                `;
+            }
+            
+            currentStatusContainer.appendChild(statusEl);
+        }
+        
+        // Inicializar calendário PERFEITAMENTE ALINHADO
         function initCalendar() {
             calendarEl.innerHTML = '';
             
-            // Dias vazios no início - CORRIGIDO: Janeiro 2026 começa na quinta (4º dia)
+            // Janeiro 2026: 1º dia é Quinta-feira (índice 4)
+            // Adicionar dias vazios para alinhar o primeiro dia (1) na quinta
             for (let i = 0; i < firstDayOfMonth; i++) {
                 const emptyDay = document.createElement('div');
                 emptyDay.className = 'day empty';
                 calendarEl.appendChild(emptyDay);
             }
             
-            // Dias do mês
-            const todayDay = today.getDate();
-            const todayMonth = today.getMonth();
-            const todayYear = today.getFullYear();
-            const isJanuary2026 = (todayYear === 2026 && todayMonth === 0);
-            
+            // Adicionar dias do mês
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayEl = document.createElement('div');
                 const code = fullSchedule[day - 1];
                 const isWorkDay = workDays.some(d => d.day === day);
                 
-                // Verificar se é hoje (apenas se for janeiro de 2026)
-                const isToday = isJanuary2026 && (day === todayDay);
+                // Verificar se é hoje (apenas se for janeiro 2026)
+                const isToday = isJanuary2026() && (day === currentDay);
                 
                 dayEl.className = `day ${isWorkDay ? 'work' : 'off'} ${isToday ? 'today' : ''}`;
                 dayEl.dataset.day = day;
@@ -1048,12 +1204,10 @@
                     // Selecionar este dia
                     dayEl.classList.add('selected');
                     
-                    // Se for um dia de trabalho, mostrar detalhes
-                    if (isWorkDay) {
-                        const workDay = workDays.find(d => d.day === day);
-                        if (workDay) {
-                            showWorkDayDetails(workDay);
-                        }
+                    // Mostrar detalhes
+                    const workDay = workDays.find(d => d.day === day);
+                    if (workDay) {
+                        showWorkDayDetails(workDay);
                     } else {
                         showDayDetails(day, code);
                     }
@@ -1083,19 +1237,27 @@
                 const dayOfWeek = date.toLocaleDateString('pt-BR', { weekday: 'long' });
                 const capitalizedDay = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
                 
+                // Verificar se é hoje
+                const isToday = isJanuary2026() && (workDay.day === currentDay);
+                
                 const workDayItem = document.createElement('div');
-                workDayItem.className = 'work-day-item';
+                workDayItem.className = `work-day-item ${isToday ? 'today' : ''}`;
                 workDayItem.dataset.day = workDay.day;
+                
+                if (isToday) {
+                    workDayItem.style.borderLeftColor = '#4caf50';
+                    workDayItem.style.backgroundColor = 'rgba(76, 175, 80, 0.05)';
+                }
                 
                 workDayItem.innerHTML = `
                     <div class="work-day-date">
-                        <div class="work-day-number">${workDay.day}</div>
+                        <div class="work-day-number" style="${isToday ? 'color: #4caf50;' : ''}">${workDay.day}</div>
                         <div class="work-day-weekday">${capitalizedDay.substring(0, 3)}</div>
                     </div>
                     <div class="work-day-details">
-                        <div class="work-day-code">${workDay.code}</div>
+                        <div class="work-day-code" style="${isToday ? 'background-color: #4caf50;' : ''}">${workDay.code}</div>
                         <div class="work-day-description">${workDay.description}</div>
-                        <div style="font-size: 0.8rem; color: #666;">${workDay.day} de Janeiro de 2026</div>
+                        <div style="font-size: 0.7rem; color: #666;">${workDay.day} de Janeiro de 2026${isToday ? ' - HOJE' : ''}</div>
                     </div>
                 `;
                 
@@ -1108,7 +1270,7 @@
                     const dayEl = document.querySelector(`.day[data-day="${workDay.day}"]`);
                     if (dayEl) {
                         dayEl.classList.add('selected');
-                        // Rolagem suave para o elemento
+                        // Rolagem suave
                         setTimeout(() => {
                             dayEl.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
                         }, 100);
@@ -1122,96 +1284,104 @@
             });
         }
         
-        // Inicializar próximos dias de trabalho CORRIGIDO
+        // Inicializar próximos dias de trabalho COM DATA REAL
         function initNextWorkDays() {
             nextWorkDaysEl.innerHTML = '';
             
-            const { nextDays, daysUntilNext } = getNextWorkDays();
+            const { nextDays, daysUntilNext, isTodayWorkDay, todayWorkDay } = getNextWorkDays();
             
             // Atualizar contador no resumo
             if (daysUntilNext !== null) {
                 nextWorkInEl.textContent = daysUntilNext;
                 nextWorkLabelEl.textContent = daysUntilNext === 1 ? "Próximo trabalho (amanhã)" : "Próximo trabalho";
+            } else if (isTodayWorkDay) {
+                nextWorkInEl.textContent = "HOJE";
+                nextWorkLabelEl.textContent = "Trabalhando agora";
             } else {
                 nextWorkInEl.textContent = "-";
                 nextWorkLabelEl.textContent = "Próximo trabalho";
             }
             
-            if (nextDays.length === 0) {
-                const todayDay = today.getDate();
-                const todayMonth = today.getMonth();
-                const todayYear = today.getFullYear();
-                
-                if (todayYear !== 2026 || todayMonth !== 0) {
-                    nextWorkDaysEl.innerHTML = '<div class="no-work-days">Esta escala é para Janeiro 2026</div>';
-                } else {
-                    // Verificar se hoje é dia de trabalho
-                    const isTodayWorkDay = workDays.some(d => d.day === todayDay);
+            // Se for janeiro de 2026
+            if (isJanuary2026()) {
+                // Se hoje for dia de trabalho, mostrar primeiro
+                if (isTodayWorkDay) {
+                    const dayOfWeek = today.toLocaleDateString('pt-BR', { weekday: 'long' });
+                    const capitalizedDay = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
                     
-                    if (isTodayWorkDay) {
-                        const workDay = workDays.find(d => d.day === todayDay);
-                        const dayOfWeek = today.toLocaleDateString('pt-BR', { weekday: 'long' });
+                    const todayItem = document.createElement('div');
+                    todayItem.className = 'next-day-item';
+                    todayItem.style.borderLeftColor = '#4caf50';
+                    
+                    todayItem.innerHTML = `
+                        <div class="next-day-info">
+                            <div class="next-day-date">
+                                <div class="next-day-number" style="color: #4caf50;">${currentDay}</div>
+                                <div class="next-day-weekday">${capitalizedDay.substring(0, 3)}</div>
+                            </div>
+                            <div class="next-day-details">
+                                <div class="next-day-code" style="background-color: #4caf50;">${todayWorkDay.code}</div>
+                                <div class="next-day-description">${todayWorkDay.description}</div>
+                                <div class="next-day-distance">HOJE - ${formatTime(today)}</div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    nextWorkDaysEl.appendChild(todayItem);
+                }
+                
+                // Adicionar próximos dias
+                if (nextDays.length === 0 && !isTodayWorkDay) {
+                    nextWorkDaysEl.innerHTML = '<div class="no-work-days">Não há mais dias de trabalho este mês</div>';
+                } else {
+                    nextDays.forEach(workDay => {
+                        const date = new Date(2026, 0, workDay.day);
+                        const dayOfWeek = date.toLocaleDateString('pt-BR', { weekday: 'long' });
                         const capitalizedDay = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
                         
-                        nextWorkDaysEl.innerHTML = `
-                            <div class="next-day-item" style="border-left-color: #4caf50;">
-                                <div class="next-day-info">
-                                    <div class="next-day-date">
-                                        <div class="next-day-number" style="color: #4caf50;">${todayDay}</div>
-                                        <div class="next-day-weekday">${capitalizedDay.substring(0, 3)}</div>
-                                    </div>
-                                    <div class="next-day-details">
-                                        <div class="next-day-code" style="background-color: #4caf50;">${workDay.code}</div>
-                                        <div class="next-day-description">${workDay.description}</div>
-                                        <div class="next-day-distance">HOJE - Trabalhando agora</div>
-                                    </div>
+                        // Calcular dias até este trabalho
+                        const daysUntil = workDay.day - currentDay;
+                        let distanceText = "";
+                        
+                        if (daysUntil === 1) {
+                            distanceText = "Amanhã";
+                        } else if (daysUntil === 0) {
+                            distanceText = "Hoje";
+                        } else {
+                            distanceText = `Em ${daysUntil} dias`;
+                        }
+                        
+                        const dayItem = document.createElement('div');
+                        dayItem.className = 'next-day-item';
+                        
+                        dayItem.innerHTML = `
+                            <div class="next-day-info">
+                                <div class="next-day-date">
+                                    <div class="next-day-number">${workDay.day}</div>
+                                    <div class="next-day-weekday">${capitalizedDay.substring(0, 3)}</div>
+                                </div>
+                                <div class="next-day-details">
+                                    <div class="next-day-code">${workDay.code}</div>
+                                    <div class="next-day-description">${workDay.description}</div>
+                                    <div class="next-day-distance">${distanceText} - ${workDay.day} de Jan</div>
                                 </div>
                             </div>
-                            <div class="no-work-days" style="margin-top: 15px;">Não há mais dias de trabalho este mês</div>
                         `;
-                    } else {
-                        nextWorkDaysEl.innerHTML = '<div class="no-work-days">Não há mais dias de trabalho este mês</div>';
-                    }
+                        
+                        nextWorkDaysEl.appendChild(dayItem);
+                    });
                 }
-                return;
-            }
-            
-            nextDays.forEach(workDay => {
-                const date = new Date(2026, 0, workDay.day);
-                const dayOfWeek = date.toLocaleDateString('pt-BR', { weekday: 'long' });
-                const capitalizedDay = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
-                
-                // Calcular dias até este trabalho
-                const daysUntil = workDay.day - today.getDate();
-                let distanceText = "";
-                
-                if (daysUntil === 1) {
-                    distanceText = "Amanhã";
-                } else if (daysUntil === 0) {
-                    distanceText = "Hoje";
-                } else {
-                    distanceText = `Em ${daysUntil} dias`;
-                }
-                
-                const dayItem = document.createElement('div');
-                dayItem.className = 'next-day-item';
-                
-                dayItem.innerHTML = `
-                    <div class="next-day-info">
-                        <div class="next-day-date">
-                            <div class="next-day-number">${workDay.day}</div>
-                            <div class="next-day-weekday">${capitalizedDay.substring(0, 3)}</div>
-                        </div>
-                        <div class="next-day-details">
-                            <div class="next-day-code">${workDay.code}</div>
-                            <div class="next-day-description">${workDay.description}</div>
-                            <div class="next-day-distance">${distanceText} - ${workDay.day} de Jan</div>
-                        </div>
+            } else {
+                // Se não for janeiro de 2026
+                const currentDate = formatDate(today);
+                nextWorkDaysEl.innerHTML = `
+                    <div class="no-work-days">
+                        Esta escala é para Janeiro 2026<br>
+                        Data atual: ${currentDate}<br>
+                        Próximos dias de trabalho serão calculados quando for Janeiro 2026
                     </div>
                 `;
-                
-                nextWorkDaysEl.appendChild(dayItem);
-            });
+            }
         }
         
         // Atualizar estatísticas
@@ -1225,7 +1395,6 @@
         
         // Mostrar detalhes de um dia
         function showWorkDayDetails(workDay) {
-            // Criar modal simples
             const dayOfWeek = new Date(2026, 0, workDay.day).toLocaleDateString('pt-BR', { weekday: 'long' });
             const capitalizedDay = dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
             
@@ -1279,55 +1448,117 @@
             }, 400);
         }
         
-        // Configurar eventos das abas
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabName = tab.dataset.tab;
-                switchTab(tabName);
+        // Atualizar todos os dados em tempo real
+        function updateAllData() {
+            // Atualizar data/hora atual
+            const now = new Date();
+            const currentHour = now.getHours();
+            
+            // Atualizar timestamps
+            updateTimestamps();
+            
+            // Atualizar status atual (se for janeiro 2026)
+            if (isJanuary2026()) {
+                createCurrentStatus();
+            }
+            
+            // Atualizar próximos dias de trabalho
+            initNextWorkDays();
+        }
+        
+        // Configurar eventos
+        function setupEventListeners() {
+            // Configurar eventos das abas
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+                    switchTab(tabName);
+                });
             });
-        });
-        
-        // Configurar eventos da navegação inferior
-        navItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tabName = item.dataset.tab;
-                switchTab(tabName);
+            
+            // Configurar eventos da navegação inferior
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabName = item.dataset.tab;
+                    switchTab(tabName);
+                });
             });
-        });
+            
+            // Configurar botão de impressão/salvar
+            document.getElementById('print-btn').addEventListener('click', () => {
+                alert("Funcionalidade de salvar/impressão ativada. Em um ambiente real, isso abriria as opções de salvamento ou impressão.");
+            });
+            
+            // Configurar navegação de meses
+            document.getElementById('prev-month').addEventListener('click', () => {
+                alert("Janeiro é o primeiro mês da escala. Não há mês anterior disponível.");
+            });
+            
+            document.getElementById('next-month').addEventListener('click', () => {
+                alert("Esta escala mostra apenas janeiro de 2026. Para meses futuros, consulte a escala atualizada.");
+            });
+        }
         
-        // Configurar botão de impressão/salvar
-        document.getElementById('print-btn').addEventListener('click', () => {
-            // Em um ambiente real, isso abriria a caixa de diálogo de impressão
-            // Para demonstração, apenas mostraremos uma mensagem
-            alert("Funcionalidade de salvar/impressão ativada. Em um ambiente real, isso abriria as opções de salvamento ou impressão.");
-        });
-        
-        // Configurar navegação de meses (apresentação)
-        document.getElementById('prev-month').addEventListener('click', () => {
-            alert("Janeiro é o primeiro mês da escala. Não há mês anterior disponível.");
-        });
-        
-        document.getElementById('next-month').addEventListener('click', () => {
-            alert("Esta escala mostra apenas janeiro de 2026. Para meses futuros, consulte a escala atualizada.");
-        });
+        // Suporte para gestos de deslizar (swipe) entre abas
+        function setupSwipeGestures() {
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            document.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            document.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                // Determinar a aba atual
+                const currentTab = document.querySelector('.tab.active').dataset.tab;
+                const tabOrder = ['calendar', 'work-days', 'info', 'legend'];
+                const currentIndex = tabOrder.indexOf(currentTab);
+                
+                // Deslizar para a esquerda (próxima aba)
+                if (diff > swipeThreshold && currentIndex < tabOrder.length - 1) {
+                    switchTab(tabOrder[currentIndex + 1]);
+                }
+                
+                // Deslizar para a direita (aba anterior)
+                if (diff < -swipeThreshold && currentIndex > 0) {
+                    switchTab(tabOrder[currentIndex - 1]);
+                }
+            }
+        }
         
         // Inicializar a aplicação
         function initApp() {
+            // Inicializar componentes
+            createCurrentStatus();
             initCalendar();
             initWorkDaysList();
             initNextWorkDays();
+            updateTimestamps();
+            
+            // Configurar eventos
+            setupEventListeners();
+            setupSwipeGestures();
             
             // Configurar a primeira aba como ativa
             switchTab('calendar');
             
-            // Mostrar mensagem se não for janeiro de 2026
-            const todayYear = today.getFullYear();
-            const todayMonth = today.getMonth();
+            // Iniciar atualização em tempo real (a cada minuto)
+            updateInterval = setInterval(updateAllData, 60000); // 60 segundos
             
-            if (todayYear !== 2026 || todayMonth !== 0) {
+            // Mostrar mensagem se não for janeiro de 2026
+            if (!isJanuary2026()) {
+                const currentDate = formatDate(today);
                 setTimeout(() => {
-                    alert(`Nota: Esta escala é para Janeiro de 2026.\nData atual: ${today.toLocaleDateString('pt-BR')}\nOs próximos dias de trabalho são calculados como se hoje fosse 5 de Janeiro de 2026.`);
+                    console.log(`Nota: Esta escala é para Janeiro de 2026. Data atual: ${currentDate}`);
                 }, 1000);
             }
         }
@@ -1335,46 +1566,18 @@
         // Iniciar quando o DOM estiver carregado
         document.addEventListener('DOMContentLoaded', initApp);
         
-        // Suporte para gestos de deslizar (swipe) entre abas
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        document.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
+        // Limpar intervalo ao sair da página
+        window.addEventListener('beforeunload', () => {
+            if (updateInterval) {
+                clearInterval(updateInterval);
+            }
         });
         
-        document.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            // Determinar a aba atual
-            const currentTab = document.querySelector('.tab.active').dataset.tab;
-            const tabOrder = ['calendar', 'work-days', 'info', 'legend'];
-            const currentIndex = tabOrder.indexOf(currentTab);
-            
-            // Deslizar para a esquerda (próxima aba)
-            if (diff > swipeThreshold && currentIndex < tabOrder.length - 1) {
-                switchTab(tabOrder[currentIndex + 1]);
+        // Atualizar ao voltar para a página (quando visível)
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                updateAllData();
             }
-            
-            // Deslizar para a direita (aba anterior)
-            if (diff < -swipeThreshold && currentIndex > 0) {
-                switchTab(tabOrder[currentIndex - 1]);
-            }
-        }
-        
-        // Ajustar calendário ao redimensionar a janela
-        window.addEventListener('resize', () => {
-            // Forçar reflow para corrigir possíveis problemas de layout
-            calendarEl.style.display = 'none';
-            setTimeout(() => {
-                calendarEl.style.display = 'grid';
-            }, 10);
         });
     </script>
 </body>
